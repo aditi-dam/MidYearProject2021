@@ -1,3 +1,4 @@
+
 {
     "manifest_version": 2,
   
@@ -9,9 +10,7 @@
      "default_icon": "icon.png",
      "default_popup": "popup.html"
     },
-    "permissions": [
-     "tabs"
-     ],
+    "permissions": ["storage", "activeTab", "declarativeContent"],
      "content_scripts": [
         {
             "matches": [
@@ -19,7 +18,8 @@
             ],
             "js": [
                 "popup.js",
-                "planner.js"
+                "jQuery.js"
+
             ],
             "run_at": "document_end"
         }

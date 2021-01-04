@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "NOVerdue",
+    "description": "This extension removes the \"overdue\" section on schoology!",
+    "version": "2",
+    "icons": {
+        "128": "icon.png"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.schoology.com/*"
+            ],
+            "js": [
+                "jquery.js",
+                "noverdue.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
