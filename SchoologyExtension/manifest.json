@@ -2,7 +2,7 @@
     "manifest_version": 2,
   
     "name": "Schoology Planner Extension",
-    "description": "We don't know what this does yet.",
+    "description": "A dropdown menu of all your Schoology assignments, accessible even outside of Schoology.",
     "version": "1.0",
   
     "browser_action": {
