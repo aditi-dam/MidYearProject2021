@@ -10,8 +10,5 @@ document.addEventListener('DOMContentLoaded', function() { //calls the below whe
   var tasks = "hello";
 
   firstP.innerText = tasks;
-   
-
- $('div.overdue-submissions.overdue-submissions-wrapper')
-        .remove();
+  
 }, false);

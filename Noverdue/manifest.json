@@ -3,9 +3,11 @@
     "name": "NOVerdue",
     "description": "This extension removes the \"overdue\" section on schoology!",
     "version": "2",
-    "icons": {
-        "128": "icon.png"
-    },
+    
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+       },
     "permissions": [
         "tabs"
     ],

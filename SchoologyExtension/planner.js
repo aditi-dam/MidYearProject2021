@@ -1,4 +1,5 @@
-function getTasks(){
-    document.getElementById('taskOne') = "hello";
+function deleteOverdue() {
+    $('div.overdue-submissions.overdue-submissions-wrapper')
+        .remove();
 }
-getTasks();
+deleteOverdue();

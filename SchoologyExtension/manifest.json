@@ -4,21 +4,24 @@
   
     "name": "Schoology Planner Extension",
     "description": "A dropdown menu of all your Schoology assignments, accessible even outside of Schoology.",
-    "version": "1.0",
+    "version": "2",
   
     "browser_action": {
      "default_icon": "icon.png",
      "default_popup": "popup.html"
     },
-    "permissions": ["storage", "activeTab", "declarativeContent"],
+    "permissions": [
+        "tabs"
+    ],
      "content_scripts": [
         {
             "matches": [
                 "https://*.schoology.com/*"
             ],
             "js": [
-                "popup.js",
-                "jQuery.js"
+                "jquery.js",
+                "planner.js",
+                "popup.js"
 
             ],
             "run_at": "document_end"
