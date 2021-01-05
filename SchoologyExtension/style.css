@@ -1,0 +1,20 @@
+h1 {
+    color: blue;
+    font-weight: bold;
+    font-family: fantasy;
+    text-align: center;
+    font-size: 30px;
+}
+
+body{
+    width: 500px;
+    height: 500px;
+}
+
+button{
+    font-family: fantasy;
+    text-align: center;
+    font-size: 15px;
+    width: 50px;
+    height: 50px;
+}
