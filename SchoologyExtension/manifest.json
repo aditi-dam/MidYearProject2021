@@ -19,7 +19,8 @@
                 "https://*.schoology.com/*"
             ],
             "js": [
-                "jquery.js"
+                "jquery.js",
+                "popup.js"
                 
 
             ],

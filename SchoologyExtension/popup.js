@@ -1,4 +1,10 @@
+document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
+  
+    document.getElementById("taskone").innerHTML = "HelloWorld";
 
+});
+
+/*
 document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
   
     var htmlRoot = document.children[0];
@@ -21,7 +27,8 @@ function addTasks() {
     var x = event.children()[1].innerText;
 
     return x;
-    */
+
  
   }
+  */
 
