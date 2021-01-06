@@ -20,8 +20,8 @@
             ],
             "js": [
                 "jquery.js",
-                "planner.js",
-                "popup.js"
+                "planner.js"
+                
 
             ],
             "run_at": "document_end"

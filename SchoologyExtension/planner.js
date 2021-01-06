@@ -5,10 +5,15 @@ function addTasks() {
     var list = $('div.upcoming-list');
     var event = $('div.upcoming-event.course-event');
     var x = event.children()[1].innerText
-    
-   console.log(x);
-    
-  
+ 
   }
 
   addTasks();
+
+
+
+
+
+
+
+  
