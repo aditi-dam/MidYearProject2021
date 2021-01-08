@@ -13,17 +13,17 @@
     "permissions": [
         "tabs"
     ],
-     "content_scripts": [
+     "content_scripts": [ 
         {
             "matches": [
-                "https://*.schoology.com/*"
+                "<all_urls>"
+                
             ],
             "js": [
                 "jquery.js",
                 "popup.js"
-                
-
             ],
+
             "run_at": "document_end"
         }
     ]

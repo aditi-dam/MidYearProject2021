@@ -1,10 +1,24 @@
+
+$('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
+        //$('div.upcoming-event.course-event').remove();
+    
+
+
+/*
 document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
-  
-    document.getElementById("taskone").innerHTML = "HelloWorld";
+
+    //$('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
+        //$('div.upcoming-event.course-event').remove();
+
+document.getElementById("taskone").innerHTML = "hello world";
+
+
 
 });
 
-/*
+
+
+  /*
 document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
   
     var htmlRoot = document.children[0];
@@ -17,18 +31,5 @@ document.addEventListener('DOMContentLoaded', function() { //calls the below whe
 
 }, false);
 
-function addTasks() {
-    $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
-        //$('div.upcoming-event.course-event').remove();
-    /*
-    var upcoming = $('div.upcoming-events.upcoming-events-wrapper.sEventUpcoming-processed');
-    var list = $('div.upcoming-list');
-    var event = $('div.upcoming-event.course-event');
-    var x = event.children()[1].innerText;
-
-    return x;
-
- 
-  }
-  */
+*/
 
