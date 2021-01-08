@@ -1,6 +1,14 @@
+//interacts with schoology
+
 
 $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
-        //$('div.upcoming-event.course-event').remove();
+
+console.log("Chrome extension go")
+
+chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+    console.log(response.farewell);
+  });
+
     
 
 
