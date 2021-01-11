@@ -5,9 +5,12 @@ $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').rem
 
 console.log("Chrome extension go")
 
-chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-    console.log(response.farewell);
+chrome.runtime.sendMessage({greeting: "Hello?"}, function(response) {
+    console.log("The message is sent, but isn't received by onMessage for some reason");
+    console.log(response.farewell); // doesn't work
   });
+
+console.log("Message sent");
 
     
 
