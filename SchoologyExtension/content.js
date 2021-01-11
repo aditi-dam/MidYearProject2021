@@ -4,13 +4,33 @@
 $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
 
 console.log("Chrome extension go")
+/*
 
-chrome.runtime.sendMessage({greeting: "Hello?"}, function(response) {
-    console.log("The message is sent, but isn't received by onMessage for some reason");
-    console.log(response.farewell); // doesn't work
+document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
+
+  document.getElementById("taskone").innerHTML = "Chrome extension go";
+//document.getElementById("taskone").innerHTML = document.querySelector("#right-column-inner > div > div > div:nth-child(2) > h4 > span > a").innerHTML;
+
+
+
+});
+*/
+
+chrome.runtime.onMessage.addListener(
+  (request, sender, sendResponse) => {
+    if (request.message === "hi") {
+      sendResponse({message: "hi to you"});
+    }
+  }
+);
+
+
+chrome.runtime.sendMessage({message: "hi"}, (response) => {
+    console.log(response.message); // doesn't work
   });
 
-console.log("Message sent");
+
+
 
     
 
