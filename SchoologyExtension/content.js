@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', function() { //calls the below whe
 
 chrome.runtime.onMessage.addListener(
   (request, sender, sendResponse) => {
-    if (request.message === "hi") {
+    if (request.message == "hi") {
       sendResponse({message: "hi to you"});
+      console.log("Where's the real message?")
     }
   }
 );

@@ -12,8 +12,9 @@ document.getElementById("taskone").innerHTML = document.querySelector("#right-co
 
 chrome.runtime.onMessage.addListener(
     (request, sender, sendResponse) => {
-      if (request.message === "hi") {
+      if (request.message == "hi") {
         sendResponse({message: "hi to you"});
+        sendResponse({message: "Here's the real message"});
       }
     }
   );
