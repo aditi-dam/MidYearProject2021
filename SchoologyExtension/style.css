@@ -11,6 +11,17 @@ body{
     height: 500px;
 }
 
+ul li {
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+}
+
 button{
     font-family: fantasy;
     text-align: center;

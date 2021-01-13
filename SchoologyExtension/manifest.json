@@ -2,8 +2,8 @@
 {
     "manifest_version": 2,
   
-    "name": "Schoology Planner Extension",
-    "description": "A dropdown menu of all your Schoology assignments, accessible even outside of Schoology.",
+    "name": "Planner Extension",
+    "description": "Write your assignments and check them off when you're finished in this decorative and organized planner!",
     "version": "1",
   
     "browser_action": {
@@ -28,5 +28,7 @@
 
             "run_at": "document_end"
         }
-    ]
+    ],
+
+    "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'"
   }

@@ -1,7 +1,7 @@
 <html>
   <head>
     <link href="style.css" type="text/css" rel="stylesheet">
-    <title>Schoology Planner Extension</title>
+    <title>Planner Extension</title>
    
     <script src = "popup.js"></script>
   </head>
@@ -10,10 +10,13 @@
     <h1>To Do:</h1>
     <p id = "taskone"></p>
     <form>
-      <input type = "text" placeholder = "Add a task!"></input>
-      <input name = "task" type = "button" value = "Add" onclick = "addTask()"></input>
+      <input type="text" id="myInput" placeholder="Add a task!"></input>
+      <input name="task" type="button" value="Add" onclick="addTask()"></input>
     </form>
     
+    <ul id="myList">
+      <li>taskone</li>
+    </ul>
 
   </body>
 </html>
