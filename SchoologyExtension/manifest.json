@@ -13,16 +13,18 @@
     "permissions": [
         "tabs"
     ],
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+    
      "content_scripts": [ 
         {
             "matches": [
                 "<all_urls>"
                 
             ],
-            "js": [
-                "jquery.js",
-                "content.js"
-            ],
+            "js": ["popup.js"],
 
             "run_at": "document_end"
         }

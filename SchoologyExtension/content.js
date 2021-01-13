@@ -1,66 +1,51 @@
 //interacts with schoology
 
+chrome.runtime.sendMessage({
+  from: 'content',
+  subject: 'showPageAction',
+});
+
+chrome.runtime.sendMessage({
+  from: 'content',
+  subject: 'pleaseWork',
+});
+
 
 $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
 
 console.log("Chrome extension go")
+
+
 /*
-
-document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
-
-  document.getElementById("taskone").innerHTML = "Chrome extension go";
-//document.getElementById("taskone").innerHTML = document.querySelector("#right-column-inner > div > div > div:nth-child(2) > h4 > span > a").innerHTML;
-
-
-
-});
-*/
-
 chrome.runtime.onMessage.addListener(
   (request, sender, sendResponse) => {
+    console.log("made it")
     if (request.message === "hi") {
-      sendResponse({message: "hi to you"});
+      console.log("received")
     }
   }
 );
 
 
-chrome.runtime.sendMessage({message: "hi"}, (response) => {
-    console.log(response.message); // doesn't work
-  });
-
-
-
-
-    
 
 
 /*
+
+Different commands we've used before:
+
 document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
 
-    //$('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
-        //$('div.upcoming-event.course-event').remove();
+    $('div#overdue-submissions.overdue-submissions.overdue-submissions-wrapper').remove();
+    $('div.upcoming-event.course-event').remove();
 
-document.getElementById("taskone").innerHTML = "hello world";
+    document.getElementById("taskone").innerHTML = "hello world";
+    document.querySelector("#right-column-inner > div > div > div:nth-child(2) > h4 > span > a")
+
 
 
 
 });
 
-
-
-  /*
-document.addEventListener('DOMContentLoaded', function() { //calls the below when the initial HTML document is completely loaded
-  
-    var htmlRoot = document.children[0];
-    var body = htmlRoot.children[1]
-    var firstP = body.children[1];
-    firstP.innerText = "hello";
-
-    addTasks();
-    console.trace();
-
-}, false);
-
 */
+
 

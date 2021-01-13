@@ -3,12 +3,17 @@
     <link href="style.css" type="text/css" rel="stylesheet">
     <title>Schoology Planner Extension</title>
    
-    <script src = "planner.js"></script>
+    <script src = "popup.js"></script>
   </head>
 
   <body>
     <h1>To Do:</h1>
     <p id = "taskone"></p>
+    <form>
+      <input type = "text" id = "fname" name = "fname" placeholder = "Add a task!"></input>
+      <input name = "task" type = "button" value = "Add" onclick = "addTask()"></input>
+    </form>
+    
 
   </body>
 </html>
