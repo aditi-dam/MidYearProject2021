@@ -6,16 +6,19 @@ document.addEventListener('DOMContentLoaded', function() { //calls when the DOM 
 });
 */
 
-function addTask(text){ 
-  
-  /*
-  var inputValue = document.getElementbyId("taskone").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  document.getElementById("myList").appendChild(li);
-  */
 
-  document.getElementById("taskone").innerHTML = text;
+
+function addTask(text){ 
+
+
+
+   var tag = document.createElement("li");
+   var text = document.createTextNode(text);
+   tag.appendChild(text);
+  var element = document.getElementById("myList");
+   element.appendChild(tag);
+
+
 }
 
 
