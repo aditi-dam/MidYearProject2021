@@ -1,25 +1,37 @@
 //interacts with HTML popup
+
 /*
-document.addEventListener('DOMContentLoaded', function() { //calls when the DOM is completely loaded
-  document.getElementById("taskone").innerHTML = "hello";
+document.addEventListener('click', function(){
+    if(click = true){
+    var text = document.getElementById("myInput").value
+    var tag = document.createElement("li");
+    var text = document.createTextNode(text);
+    tag.appendChild(text);
+    var element = document.getElementById("myList");
+    element.appendChild(tag);
+    click = false;
+    }
 
 });
 */
 
+document.addEventListener('DOMContentLoaded', function(){
+  var button = document.getElementById("task");
+  button.addEventListener("click", function(){
+    var text = document.getElementById("myInput").value
+    var tag = document.createElement("li");
+    var text = document.createTextNode(text);
+    tag.appendChild(text);
+    var element = document.getElementById("myList");
+    element.appendChild(tag);
+    click = false;
+  });
+
+});
 
 
-function addTask(text){ 
 
 
-
-   var tag = document.createElement("li");
-   var text = document.createTextNode(text);
-   tag.appendChild(text);
-  var element = document.getElementById("myList");
-   element.appendChild(tag);
-
-
-}
 
 
 
