@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   chrome.storage.sync.get("task", function(data){
-      
       var text = data.task;
       addTask(text);
       console.log(text);
+      
     
   });
 
