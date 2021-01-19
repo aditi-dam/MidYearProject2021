@@ -1,26 +1,12 @@
-//interacts with HTML popup
-
-//https://stackoverflow.com/questions/40286947/how-to-access-multiple-keys-from-chrome-extensions-storage-api
-
-
 document.addEventListener('DOMContentLoaded', function(){
-  
-  /*
-  chrome.storage.local.set({'task1': 'one'});
-  allTaskKeys.push('task1')
-  chrome.storage.local.set({'task2': 'two'});
-  allTaskKeys.push('task2')
-  */
 
-
-
-  var button = document.getElementById("task");
+  var taskButton = document.getElementById("task");
+  var clearButton = document.getElementById("clearAll");
 
 
   chrome.storage.sync.get("task", (function(data){
       var text = data.task;
       var task = "";
-      //addTask(text);
       
       try{ 
         for(i = 0; i < text.length; i++){
@@ -40,22 +26,14 @@ document.addEventListener('DOMContentLoaded', function(){
   }));
 
 
-  button.addEventListener("click", function(){
-    var newElement = document.getElementById("myInput").value 
-    addTask(newElement);
+  taskButton.addEventListener("click", function(){
+    addTask(document.getElementById("myInput").value);
+    saveToStorage(); 
+  });
 
-    var list = [];
-    var ul = document.getElementById("myList");
-    var items = ul.getElementsByTagName("li");
-    
-    for (var i = 0; i < items.length; ++i) {
-      list.push(items[i].innerHTML);
-    }
-
-
-    chrome.storage.sync.set({"task": list.join(";;;")});
-    
-    
+  clearButton.addEventListener("click", function(){
+    clearAll();
+    saveToStorage(); 
   });
 
 });
@@ -67,4 +45,28 @@ function addTask(text){
   var element = document.getElementById("myList");
   element.appendChild(tag);
 }
+
+function clearAll(){
+  var ul = document.getElementById("myList");
+  var items = ul.getElementsByTagName("li");
+  console.log(items.length);
+
+  while(items.length > 0){
+    items[0].remove();
+  }
+
+}
+
+function saveToStorage(){
+  var list = [];
+  var ul = document.getElementById("myList");
+  var items = ul.getElementsByTagName("li");
+  
+  for (var i = 0; i < items.length; ++i) {
+    list.push(items[i].innerHTML);
+  }
+
+  chrome.storage.sync.set({"task": list.join(";;;")});
+}
+
 
