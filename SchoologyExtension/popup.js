@@ -17,27 +17,43 @@ document.addEventListener('DOMContentLoaded', function(){
   var button = document.getElementById("task");
 
 
-  chrome.storage.sync.get("task", function(data){
+  chrome.storage.sync.get("task", (function(data){
       var text = data.task;
-      addTask(text);
-      console.log(text);
+      var task = "";
+      //addTask(text);
       
-    
-  });
+      try{ 
+        for(i = 0; i < text.length; i++){
+          if(text.substring(i, i+3) == ";;;"){
+            addTask(task);
+            i += 2;  
+            task = "";
+          }
+          else{
+            task += text.charAt(i);
+          }
+        }
+        addTask(task);
+      }
+      catch(err){};
+
+  }));
 
 
   button.addEventListener("click", function(){
     var newElement = document.getElementById("myInput").value 
     addTask(newElement);
 
-    var text = "";
+    var list = [];
     var ul = document.getElementById("myList");
     var items = ul.getElementsByTagName("li");
     
     for (var i = 0; i < items.length; ++i) {
-      text += items[i].innerHTML 
+      list.push(items[i].innerHTML);
     }
-    chrome.storage.sync.set({"task": text});
+
+
+    chrome.storage.sync.set({"task": list.join(";;;")});
     
     
   });
