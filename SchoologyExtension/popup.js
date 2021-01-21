@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var taskButton = document.getElementById("task");
   var clearButton = document.getElementById("clearAll");
 
-
+  //load past tasks
   chrome.storage.sync.get("task", (function(data){
       var text = data.task;
       var task = "";
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   }));
 
+  //add tasks accordingly
   if(taskButton != null){
     taskButton.addEventListener("click", function(){
       addTask(document.getElementById("myInput").value);
@@ -32,10 +33,13 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  clearButton.addEventListener("click", function(){
-    clearAll();
-    saveToStorage(); 
-  });
+  //clear tasks accordingly
+  if(clearButton != null){
+    clearButton.addEventListener("click", function(){
+      clearAll();
+      saveToStorage(); 
+    });
+  }
 
 });
 
