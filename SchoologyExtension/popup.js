@@ -25,11 +25,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
   }));
 
-
-  taskButton.addEventListener("click", function(){
-    addTask(document.getElementById("myInput").value);
-    saveToStorage(); 
-  });
+  if(taskButton != null){
+    taskButton.addEventListener("click", function(){
+      addTask(document.getElementById("myInput").value);
+      saveToStorage(); 
+    });
+  }
 
   clearButton.addEventListener("click", function(){
     clearAll();
@@ -39,11 +40,13 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function addTask(text){
-  var tag = document.createElement("li");
-  var text = document.createTextNode(text);
-  tag.appendChild(text);
-  var element = document.getElementById("myList");
-  element.appendChild(tag);
+  if(text != "" && text != null){
+    var tag = document.createElement("li");
+    var text = document.createTextNode(text);
+    tag.appendChild(text);
+    var element = document.getElementById("myList");
+    element.appendChild(tag);
+  }
 }
 
 function clearAll(){
