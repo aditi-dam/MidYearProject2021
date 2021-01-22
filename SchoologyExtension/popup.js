@@ -23,6 +23,20 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       catch(err){};
   }));
+  
+  chrome.storage.sync.get("toggle", (function(data){
+    var ul = document.getElementById("myList");
+    var items = ul.getElementsByTagName("li");
+
+    try{ 
+      for(i = 0; i < data.toggle.length; i++){
+        if(data.toggle.charAt(i) == "t"){
+          items[i].classList.toggle('checked');
+        }
+      }
+    }
+    catch(err){};
+  }));
 
   //add tasks accordingly
   if(taskButton != null){
@@ -46,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function(){
     if (ev.target.tagName === 'LI') {
       ev.target.classList.toggle('checked');
     }
+
+    saveCheckedToStorage();
   }, false);
 
 });
@@ -82,3 +98,21 @@ function saveToStorage(){
 
   chrome.storage.sync.set({"task": list.join(";;;")});
 }
+
+function saveCheckedToStorage(){
+  var list = [];
+  var ul = document.getElementById("myList");
+  var items = ul.getElementsByTagName("li");
+  
+  for (var i = 0; i < items.length; ++i) {
+    if(items[i].classList.value == 'checked'){
+      list.push("t");
+    }
+    else{
+      list.push("f");
+    }
+  }
+
+  chrome.storage.sync.set({"toggle": list.join("")});
+}
+
