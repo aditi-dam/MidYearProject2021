@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function(){
       catch(err){};
   }));
   
+  //cross off the tasks that were crossed off before
   chrome.storage.sync.get("toggle", (function(data){
     var ul = document.getElementById("myList");
     var items = ul.getElementsByTagName("li");
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
     catch(err){};
   }));
 
-  //add tasks accordingly
+  //add tasks when the add button is clicked and save to storage
   if(taskButton != null){
     taskButton.addEventListener("click", function(){
       addTask(document.getElementById("myInput").value);
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  //clear tasks accordingly
+  //clear tasks when the clear button is clicked and save to storage
   if(clearButton != null){
     clearButton.addEventListener("click", function(){
       clearAll();
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  //checking tasks off
+  //check tasks off
   var list = document.querySelector('ul');
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
@@ -65,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function(){
   }, false);
 
 });
+
+//functions for when certain things are repeated
 
 function addTask(text){
   if(text != "" && text != null){
