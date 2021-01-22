@@ -8,21 +8,20 @@ document.addEventListener('DOMContentLoaded', function(){
       var text = data.task;
       var task = "";
       
-      try{ 
+      try { 
         for(i = 0; i < text.length; i++){
           if(text.substring(i, i+3) == ";;;"){
             addTask(task);
             i += 2;  
             task = "";
           }
-          else{
+          else {
             task += text.charAt(i);
           }
         }
         addTask(task);
       }
       catch(err){};
-
   }));
 
   //add tasks accordingly
@@ -40,6 +39,14 @@ document.addEventListener('DOMContentLoaded', function(){
       saveToStorage(); 
     });
   }
+
+  //checking tasks off
+  var list = document.querySelector('ul');
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
 
 });
 
@@ -75,5 +82,3 @@ function saveToStorage(){
 
   chrome.storage.sync.set({"task": list.join(";;;")});
 }
-
-
