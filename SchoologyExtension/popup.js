@@ -76,13 +76,14 @@ function addTask(text){
     tag.appendChild(text);
     var element = document.getElementById("myList");
     element.appendChild(tag);
+
+    saveCheckedToStorage();
   }
 }
 
 function clearAll(){
   var ul = document.getElementById("myList");
   var items = ul.getElementsByTagName("li");
-  console.log(items.length);
 
   while(items.length > 0){
     items[0].remove();
@@ -100,6 +101,7 @@ function saveToStorage(){
   }
 
   chrome.storage.sync.set({"task": list.join(";;;")});
+  saveCheckedToStorage();
 }
 
 function saveCheckedToStorage(){
