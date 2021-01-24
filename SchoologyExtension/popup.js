@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if(taskButton != null){
     taskButton.addEventListener("click", function(){
       addTask(document.getElementById("myInput").value);
+      document.getElementById("myInput").value = "";
       saveToStorage(); 
     });
   }

@@ -16,6 +16,7 @@ ul li {
     position: relative;
     font-size: 18px;
     transition: 0.2s;
+
 }
 
 ul li.checked {
@@ -23,6 +24,7 @@ ul li.checked {
     color: #fff;
     text-decoration: line-through;
 }
+
 
 button{
     font-family: fantasy;
