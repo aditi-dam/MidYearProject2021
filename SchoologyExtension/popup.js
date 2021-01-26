@@ -31,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     try{ 
       for(i = 0; i < data.toggle.length; i++){
+        
         if(data.toggle.charAt(i) == "t"){
           items[i].classList.toggle('checked');
         }
+        
       }
     }
     catch(err){};
@@ -57,10 +59,11 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   //cross tasks off
+  
   var list = document.querySelector('ul');
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');
+      ev.target.classList.toggle('checked');    
     }
 
     saveCheckedToStorage();
