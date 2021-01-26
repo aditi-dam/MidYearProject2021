@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  //check tasks off
+  //cross tasks off
   var list = document.querySelector('ul');
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
@@ -75,6 +75,7 @@ function addTask(text){
     var tag = document.createElement("li");
     var text = document.createTextNode(text);
     tag.appendChild(text);
+    tag.type = "checkbox";
     var element = document.getElementById("myList");
     element.appendChild(tag);
 
