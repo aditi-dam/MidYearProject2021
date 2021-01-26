@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
   chrome.storage.sync.get("task", (function(data){
       var text = data.task;
       var task = "";
-      
+      console.log(text);
       try { 
         for(i = 0; i < text.length; i++){
           if(text.substring(i, i+3) == ";;;"){
@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
     saveCheckedToStorage();
   }, false);
 
+
 });
 
 //functions for when certain things are repeated
@@ -84,6 +85,28 @@ function addTask(text){
 
     saveCheckedToStorage();
   }
+/*
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+*/
 }
 
 function clearAll(){
