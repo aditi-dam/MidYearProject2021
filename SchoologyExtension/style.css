@@ -1,14 +1,18 @@
 h1 {
     color: blue;
     font-weight: bold;
-    font-family: fantasy;
+    font-family: 'Rockwell', serif;
     text-align: center;
     font-size: 30px;
+    border: 10px double black;
+    padding-top: 15px;
+    padding-bottom: 10px;
+
 }
 
 body{
-    width: 230px;
-    height: 200px;
+    width: 530px;
+    height: 500px;
 }
 
 ul li {
@@ -21,7 +25,7 @@ ul li {
 
 ul li.checked {
     background: #888;
-    color: #fff;
+    color: rgb(3, 2, 2);
     text-decoration: line-through;
 }
 
