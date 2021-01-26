@@ -7,12 +7,18 @@ h1 {
     border: 10px double black;
     padding-top: 15px;
     padding-bottom: 10px;
-
+    background: lightskyblue; 
 }
 
 body{
     width: 530px;
     height: 500px;
+    background: lightblue;
+}
+
+p{
+    border-left: 1px black;
+    border-right: 1px black;
 }
 
 ul li {
