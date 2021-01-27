@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function(){
     saveCheckedToStorage();
   }, false);
 
-
 });
 
 //functions for when certain things are repeated
@@ -80,33 +79,23 @@ function addTask(text){
     var text = document.createTextNode(text);
     tag.appendChild(text);
     tag.type = "checkbox";
-    var element = document.getElementById("myList");
-    element.appendChild(tag);
 
+    //add close element
+    var span = document.createElement("SPAN");
+    span.className = "close";
+    span.appendChild(document.createTextNode("\u00D7"));
+    tag.appendChild(span);
+
+    document.getElementById("myList").appendChild(tag);
+
+    //add event listener for if the close is clicked
+    span.addEventListener("click", function(){
+      span.parentElement.remove();
+      saveToStorage();
+    })
     saveCheckedToStorage();
   }
-/*
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-*/
 }
 
 function clearAll(){
@@ -125,7 +114,7 @@ function saveToStorage(){
   var items = ul.getElementsByTagName("li");
   
   for (var i = 0; i < items.length; ++i) {
-    list.push(items[i].innerHTML);
+    list.push(items[i].textContent.substring(0, items[i].textContent.length -1));
   }
 
   chrome.storage.sync.set({"task": list.join(";;;")});
