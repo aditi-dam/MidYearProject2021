@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function(){
   
   //cross off the tasks that were crossed off before
   chrome.storage.sync.get("toggle", (function(data){
-    var ul = document.getElementById("myList");
-    var items = ul.getElementsByTagName("li");
+    var list = document.getElementById("myList");
+    var allTasks = list.getElementsByTagName("li");
 
     try{ 
       for(i = 0; i < data.toggle.length; i++){
         
         if(data.toggle.charAt(i) == "t"){
-          items[i].classList.toggle('checked');
+          allTasks[i].classList.toggle('checked');
         }
         
       }
@@ -73,20 +73,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
 //functions for when certain things are repeated
 
-function addTask(text){
-  if(text != "" && text != null){
-    var tag = document.createElement("li");
-    var text = document.createTextNode(text);
-    tag.appendChild(text);
-    tag.type = "checkbox";
+function addTask(taskText){
+  if(taskText != "" && taskText != null){
+    var allTasks = document.createElement("li");
+    var taskText = document.createTextNode(taskText);
+    allTasks.appendChild(taskText);
+    allTasks.type = "checkbox";
 
     //add close element
     var span = document.createElement("SPAN");
     span.className = "close";
     span.appendChild(document.createTextNode("\u00D7"));
-    tag.appendChild(span);
+    allTasks.appendChild(span);
 
-    document.getElementById("myList").appendChild(tag);
+    document.getElementById("myList").appendChild(allTasks);
 
     //add event listener for if the close is clicked
     span.addEventListener("click", function(){
@@ -99,42 +99,42 @@ function addTask(text){
 }
 
 function clearAll(){
-  var ul = document.getElementById("myList");
-  var items = ul.getElementsByTagName("li");
+  var list = document.getElementById("myList");
+  var allTasks = list.getElementsByTagName("li");
 
-  while(items.length > 0){
-    items[0].remove();
+  while(allTasks.length > 0){
+    allTasks[0].remove();
   }
 
 }
 
 function saveToStorage(){
-  var list = [];
-  var ul = document.getElementById("myList");
-  var items = ul.getElementsByTagName("li");
+  var textList = [];
+  var list = document.getElementById("myList");
+  var allTasks = list.getElementsByTagName("li");
   
-  for (var i = 0; i < items.length; ++i) {
-    list.push(items[i].textContent.substring(0, items[i].textContent.length -1));
+  for (var i = 0; i < allTasks.length; ++i) {
+    textList.push(allTasks[i].textContent.substring(0, allTasks[i].textContent.length -1));
   }
 
-  chrome.storage.sync.set({"task": list.join(";;;")});
+  chrome.storage.sync.set({"task": textList.join(";;;")});
   saveCheckedToStorage();
 }
 
 function saveCheckedToStorage(){
-  var list = [];
-  var ul = document.getElementById("myList");
-  var items = ul.getElementsByTagName("li");
+  var textList = [];
+  var list = document.getElementById("myList");
+  var allTasks = list.getElementsByTagName("li");
   
-  for (var i = 0; i < items.length; ++i) {
-    if(items[i].classList.value == 'checked'){
-      list.push("t");
+  for (var i = 0; i < allTasks.length; ++i) {
+    if(allTasks[i].classList.value == 'checked'){
+      textList.push("t");
     }
     else{
-      list.push("f");
+      textList.push("f");
     }
   }
 
-  chrome.storage.sync.set({"toggle": list.join("")});
+  chrome.storage.sync.set({"toggle": textList.join("")});
 }
 
