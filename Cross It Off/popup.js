@@ -37,7 +37,10 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         
       }
+      saveToStorage();
+      saveCheckedToStorage();
     }
+
     catch(err){};
   }));
 
