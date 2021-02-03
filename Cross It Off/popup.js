@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
   //cross tasks off
   
-  var list = document.querySelector('ul');
-  list.addEventListener('click', function(event) {
+  var taskList = document.querySelector('ul');
+  taskList.addEventListener('click', function(event) {
     if (event.target.tagName == 'LI') {
       event.target.classList.toggle('checked');    
     }
