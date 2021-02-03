@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function(){
   //cross tasks off
   
   var list = document.querySelector('ul');
-  list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');    
+  list.addEventListener('click', function(event) {
+    if (event.target.tagName == 'LI') {
+      event.target.classList.toggle('checked');    
     }
 
     saveCheckedToStorage();
@@ -81,16 +81,16 @@ function addTask(taskText){
     allTasks.type = "checkbox";
 
     //add close element
-    var span = document.createElement("SPAN");
-    span.className = "close";
-    span.appendChild(document.createTextNode("\u00D7"));
-    allTasks.appendChild(span);
+    var close = document.createElement("SPAN");
+    close.className = "close";
+    close.appendChild(document.createTextNode("\u00D7"));
+    allTasks.appendChild(close);
 
     document.getElementById("myList").appendChild(allTasks);
 
     //add event listener for if the close is clicked
-    span.addEventListener("click", function(){
-      span.parentElement.remove();
+    close.addEventListener("click", function(){
+      close.parentElement.remove();
       saveToStorage();
     })
     saveCheckedToStorage();
